@@ -22,7 +22,7 @@ function Navbar() {
     <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-amber-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="text-2xl font-serif font-bold text-amber-500 tracking-widest">
+          <Link href="/" className="text-2xl font-lobster font-bold text-amber-500 tracking-widest">
             THE CRESCENT
           </Link>
           <div className="hidden md:flex items-center space-x-8">
@@ -70,7 +70,7 @@ function Hero() {
         <p className="text-amber-500 font-light tracking-[0.4em] uppercase text-sm mb-8">
           Est. 1998 &middot; Fine Dining
         </p>
-        <h1 className="text-6xl md:text-8xl font-serif text-white mb-6 leading-tight">
+        <h1 className="text-6xl md:text-8xl font-lobster text-white mb-6 leading-tight">
           The Art of
           <br />
           <span className="text-amber-500 italic">Culinary Excellence</span>
@@ -114,14 +114,14 @@ function About() {
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#faf5ec]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">
               Our Story
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-lobster text-gray-900 mb-6">
               Where Tradition Meets Modern Gastronomy
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -134,37 +134,37 @@ function About() {
             </p>
             <div className="grid sm:grid-cols-3 gap-6">
               <div>
-                <p className="text-4xl font-serif text-amber-500 mb-2">27+</p>
+                <p className="text-4xl font-lobster text-amber-500 mb-2">27+</p>
                 <p className="text-sm text-gray-600">Years of Excellence</p>
               </div>
               <div>
-                <p className="text-4xl font-serif text-amber-500 mb-2">45+</p>
+                <p className="text-4xl font-lobster text-amber-500 mb-2">45+</p>
                 <p className="text-sm text-gray-600">Signature Dishes</p>
               </div>
               <div>
-                <p className="text-4xl font-serif text-amber-500 mb-2">150k+</p>
+                <p className="text-4xl font-lobster text-amber-500 mb-2">150k+</p>
                 <p className="text-sm text-gray-600">Guests Served</p>
               </div>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-amber-200 to-amber-500 flex items-center justify-center text-7xl">
+            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-orange-300 to-red-600 flex items-center justify-center text-7xl">
               🍝
             </div>
             <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-stone-800 to-stone-950 flex items-center justify-center text-7xl mt-8">
               🥂
             </div>
-            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-rose-200 to-rose-400 flex items-center justify-center text-7xl -mt-4">
+            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-amber-200 to-orange-400 flex items-center justify-center text-7xl -mt-4">
               🥩
             </div>
-            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-7xl mt-4">
+            <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-amber-500 to-amber-800 flex items-center justify-center text-7xl mt-4">
               🍰
             </div>
           </div>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mt-20">
           {highlights.map((h, i) => (
-            <div key={i} className="p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:shadow-lg hover:bg-white transition-all">
+            <div key={i} className="p-8 rounded-2xl border border-[#e8d9c4] bg-white hover:shadow-lg transition-all">
               <div className="text-4xl mb-4">{h.emoji}</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">{h.title}</h3>
               <p className="text-gray-600 leading-relaxed">{h.text}</p>
@@ -223,7 +223,7 @@ function Menu() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-amber-500 font-medium tracking-[0.3em] uppercase text-sm mb-4">Our Menu</p>
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">Classic French Cuisine</h2>
+          <h2 className="text-4xl md:text-5xl font-lobster mb-6">Classic French Cuisine</h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
             Authentic Provençal recipes and French classics, crafted with the finest ingredients.
           </p>
@@ -232,7 +232,7 @@ function Menu() {
           {categories.map((cat, i) => (
             <div key={i} className="rounded-2xl bg-white/[0.05] border border-white/10 p-8">
               <div className="text-4xl mb-4">{cat.icon}</div>
-              <h3 className="text-2xl font-serif text-amber-400 mb-6">{cat.name}</h3>
+              <h3 className="text-2xl font-lobster text-amber-400 mb-6">{cat.name}</h3>
               <div className="space-y-6">
                 {cat.items.map((item, j) => (
                   <div key={j}>
@@ -267,11 +267,11 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#fdf9f2]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">The Experience</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">More Than a Meal</h2>
+          <h2 className="text-4xl md:text-5xl font-lobster text-gray-900 mb-6">More Than a Meal</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Every visit at THE CRESCENT is a journey worth remembering.
           </p>
@@ -279,7 +279,7 @@ function Experience() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, i) => (
             <div key={i} className="text-center group">
-              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-amber-100 to-amber-300 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-orange-200 to-amber-400 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform">
                 {item.emoji}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
@@ -315,11 +315,11 @@ function Testimonials() {
   ];
 
   return (
-    <section id="reviews" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="reviews" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#faf5ec]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">Guest Reviews</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">What Our Guests Say</h2>
+          <h2 className="text-4xl md:text-5xl font-lobster text-gray-900 mb-6">What Our Guests Say</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((r, i) => (
@@ -331,7 +331,7 @@ function Testimonials() {
               </div>
               <p className="text-gray-700 leading-relaxed mb-8 italic">&ldquo;{r.content}&rdquo;</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gray-900 text-amber-400 flex items-center justify-center font-bold font-serif text-lg">
+                <div className="w-12 h-12 rounded-full bg-gray-900 text-amber-400 flex items-center justify-center font-bold font-lobster text-lg">
                   {r.name.charAt(0)}
                 </div>
                 <div>
@@ -354,7 +354,7 @@ function Reservation() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-amber-500 font-medium tracking-[0.3em] uppercase text-sm mb-4">Reservations</p>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Book Your Table</h2>
+            <h2 className="text-4xl md:text-5xl font-lobster mb-6">Book Your Table</h2>
             <p className="text-xl text-white/70 leading-relaxed mb-10">
               Join us for an evening of unforgettable dining. We recommend booking in advance
               to secure your preferred table and time.
@@ -391,7 +391,7 @@ function Reservation() {
             </div>
           </div>
           <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-8">
-            <h3 className="text-2xl font-serif text-amber-400 mb-8 text-center">Make a Reservation</h3>
+            <h3 className="text-2xl font-lobster text-amber-400 mb-8 text-center">Make a Reservation</h3>
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label className="block text-white/70 text-sm mb-2">Full Name</label>
@@ -445,7 +445,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div>
-            <h3 className="text-2xl font-serif text-amber-500 mb-4 tracking-widest">THE CRESCENT</h3>
+            <h3 className="text-2xl font-lobster text-amber-500 mb-4 tracking-widest">THE CRESCENT</h3>
             <p className="text-white/60">
               Fine dining at its finest since 1998. Crafting unforgettable experiences, one dish at a time.
             </p>
