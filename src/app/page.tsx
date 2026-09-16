@@ -179,33 +179,41 @@ function About() {
 function Menu() {
   const categories = [
     {
-      name: "First Courses",
+      name: "Starters & Soups",
       icon: "🦪",
       items: [
-        { name: "Seared Scallops", desc: "Cauliflower purée, brown butter, crispy capers", price: "$24" },
-        { name: "Burrata di Bufala", desc: "Heirloom tomatoes, basil oil, aged balsamic", price: "$19" },
-        { name: "Wild Mushroom Velouté", desc: "Truffle cream, chive oil, sourdough crumb", price: "$17" },
-        { name: "Carpaccio di Manzo", desc: "Beef carpaccio, arugula, parmesan, lemon", price: "$21" },
+        { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550" },
+        { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600" },
+        { name: "Escargots de Bourgogne", desc: "Snails with garlic-herb butter", price: "₹2,900" },
+        { name: "Soupe à l'Oignon", desc: "French onion soup", price: "₹2,500" },
+        { name: "Galette Bretonne", desc: "Savory buckwheat crêpe", price: "₹2,650" },
+        { name: "Salade Niçoise", desc: "Niçoise salad with vegetables, tuna and egg", price: "₹2,750" },
       ],
     },
     {
       name: "Main Courses",
       icon: "🥩",
       items: [
-        { name: "Herb-Crusted Lamb", desc: "Rosemary jus, pommes purée, charred asparagus", price: "$46" },
-        { name: "Pan-Seared Seabass", desc: "Saffron broth, fennel, citrus beurre blanc", price: "$42" },
-        { name: "Wagyu Beef Fillet", desc: "Peppercorn sauce, truffle potatoes, glazed carrots", price: "$58" },
-        { name: "Wild Boar Ragù", desc: "Hand-made tagliatelle, pecorino, sage", price: "$38" },
+        { name: "Coq au Vin", desc: "Chicken braised in wine", price: "₹2,850" },
+        { name: "Bœuf Bourguignon", desc: "Beef stew cooked with red wine", price: "₹2,950" },
+        { name: "Ratatouille", desc: "Stewed Mediterranean vegetables", price: "₹2,500" },
+        { name: "Bouillabaisse", desc: "Traditional Provençal fish stew", price: "₹3,000" },
+        { name: "Cassoulet", desc: "White beans with meat and sausage", price: "₹2,750" },
+        { name: "Confit de Canard", desc: "Slow-cooked duck leg", price: "₹2,900" },
+        { name: "Duck à l'Orange", desc: "Duck with orange sauce", price: "₹2,900" },
+        { name: "Gratin Dauphinois", desc: "Creamy baked potatoes", price: "₹2,500" },
+        { name: "Steak Frites", desc: "Steak served with French fries", price: "₹2,850" },
       ],
     },
     {
       name: "Desserts",
       icon: "🍰",
       items: [
-        { name: "Grand Marnier Soufflé", desc: "Vanilla anglaise, candied orange", price: "$16" },
-        { name: "Dark Chocolate Fondant", desc: "Salted caramel center, espresso gelato", price: "$15" },
-        { name: "Crème Brûlée", desc: "Madagascar vanilla, fresh berries", price: "$14" },
-        { name: "Cheese Selection", desc: "Five artisan cheeses, honeycomb, fig butter", price: "$22" },
+        { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600" },
+        { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700" },
+        { name: "Croissant", desc: "Buttery, flaky pastry", price: "₹2,500" },
+        { name: "Crème Brûlée", desc: "Baked custard with caramelized sugar", price: "₹2,800" },
+        { name: "Chocolate Mousse", desc: "Light, rich chocolate dessert", price: "₹2,650" },
       ],
     },
   ];
@@ -215,9 +223,9 @@ function Menu() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-amber-500 font-medium tracking-[0.3em] uppercase text-sm mb-4">Our Menu</p>
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">A Symphony of Flavors</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">Classic French Cuisine</h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Seasonal tasting menus and à la carte selections, crafted with the finest ingredients.
+            Authentic Provençal recipes and French classics, crafted with the finest ingredients.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
