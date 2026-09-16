@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cresent - Modern SaaS Platform",
+  title: "THE CRESCENT - Fine Dining Restaurant",
   description:
-    "Empower your business with cutting-edge technology. Cresent provides the tools you need to scale, automate, and succeed.",
+    "THE CRESCENT offers an unforgettable fine dining experience. Exquisite cuisine, elegant ambiance, and impeccable service.",
 };
 
 export default function RootLayout({
