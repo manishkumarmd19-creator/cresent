@@ -66,7 +66,7 @@ function Navbar() {
     <nav className="fixed top-0 w-full bg-wine/90 backdrop-blur-md z-50 border-b-2 border-gold/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="text-2xl font-lobster text-gold tracking-wide">
+          <Link href="/" className="text-2xl font-heading text-gold tracking-wide">
             THE CRESCENT
           </Link>
           <div className="hidden md:flex items-center space-x-8">
@@ -114,7 +114,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-wine overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="font-lobster text-gold/[0.06] text-[24rem] md:text-[34rem] leading-none whitespace-nowrap">
+        <span className="font-heading text-gold/[0.06] text-[24rem] md:text-[34rem] leading-none whitespace-nowrap">
           Buon Appetito
         </span>
       </div>
@@ -122,7 +122,7 @@ function Hero() {
         <span className="font-script text-gold text-6xl rotate-[-8deg] inline-block">Mangia</span>
       </div>
       <div className="absolute right-10 top-40 hidden lg:block">
-        <span className="font-lobster text-gold text-4xl rotate-[6deg] inline-block">&ldquo;Salute!&rdquo;</span>
+        <span className="font-heading text-gold text-4xl rotate-[6deg] inline-block">&ldquo;Salute!&rdquo;</span>
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-40 w-full min-h-screen">
@@ -145,12 +145,12 @@ function Hero() {
             }
           >
             <p className="font-script text-gold text-2xl md:text-3xl mb-4">{slide.accent}</p>
-            <h2 className="text-6xl md:text-8xl font-lobster text-cream mb-5 leading-none tracking-wide">
+            <h2 className="text-6xl md:text-8xl font-heading text-cream mb-5 leading-none tracking-wide">
               {slide.title}
             </h2>
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-1 w-12 rounded-full bg-gold/40"></div>
-              <span className="font-lobster text-gold text-xl">&starf;</span>
+              <span className="font-heading text-gold text-xl">&starf;</span>
               <div className="h-1 w-12 rounded-full bg-gold/40"></div>
             </div>
             <p className="text-xl md:text-2xl text-cream/75 max-w-xl mx-auto mb-8 leading-relaxed">
@@ -171,7 +171,7 @@ function Hero() {
                 Order This Dish
               </a>
             </div>
-            <p className="mt-8 text-4xl font-lobster text-gold">{slide.price}</p>
+            <p className="mt-8 text-4xl font-heading text-gold">{slide.price}</p>
           </div>
         ))}
 
@@ -221,7 +221,7 @@ function Marquee() {
         {[0, 1].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center">
             {marqueeWords.map((word, j) => (
-              <span key={j} className="text-cream font-lobster text-2xl mx-8 tracking-wide">
+              <span key={j} className="text-cream font-heading text-2xl mx-8 tracking-wide">
                 {word} <span className="text-gold mx-4">&star;</span>
               </span>
             ))}
@@ -249,7 +249,7 @@ function About() {
             <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">
               La Nostra Storia
             </p>
-            <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-6 leading-snug">
+            <h2 className="text-4xl md:text-6xl font-heading text-cream mb-6 leading-snug">
               Where Tradition Meets Modern Gastronomy
             </h2>
             <p className="text-lg text-cream/75 leading-relaxed mb-8">
@@ -262,35 +262,35 @@ function About() {
             </p>
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="bg-cream border-2 border-gold rounded-2xl p-6 text-center shadow-lg">
-                <p className="text-3xl font-lobster text-burgundy mb-1">27+</p>
+                <p className="text-3xl font-heading text-burgundy mb-1">27+</p>
                 <p className="text-sm text-cocoa/70">Years of Excellence</p>
               </div>
               <div className="bg-cream border-2 border-gold rounded-2xl p-6 text-center shadow-lg">
-                <p className="text-3xl font-lobster text-burgundy mb-1">45+</p>
+                <p className="text-3xl font-heading text-burgundy mb-1">45+</p>
                 <p className="text-sm text-cocoa/70">Signature Dishes</p>
               </div>
               <div className="bg-cream border-2 border-gold rounded-2xl p-6 text-center shadow-lg">
-                <p className="text-3xl font-lobster text-burgundy mb-1">150k+</p>
+                <p className="text-3xl font-heading text-burgundy mb-1">150k+</p>
                 <p className="text-sm text-cocoa/70">Guests Served</p>
               </div>
             </div>
           </div>
           <div className="rounded-3xl bg-burgundy border-4 border-gold p-10 shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
-              <span className="font-lobster text-cream text-[10rem] leading-none absolute -bottom-6 -right-4">
+              <span className="font-heading text-cream text-[10rem] leading-none absolute -bottom-6 -right-4">
                 Bellissimo
               </span>
             </div>
             <p className="font-script text-gold text-3xl mb-6 text-center">Carta del Giorno</p>
-            <h3 className="text-center font-lobster text-cream text-3xl mb-10 border-b-2 border-gold/40 pb-6">
+            <h3 className="text-center font-heading text-cream text-3xl mb-10 border-b-2 border-gold/40 pb-6">
               Today&apos;s Specials
             </h3>
             <div className="space-y-6">
               {specials.map((s, i) => (
                 <div key={i} className="flex justify-between items-baseline gap-4">
-                  <span className="font-lobster text-cream text-xl">{s.name}</span>
+                  <span className="font-heading text-cream text-xl">{s.name}</span>
                   <div className="flex-1 border-b-2 border-dotted border-gold/50 mx-2"></div>
-                  <span className="font-lobster text-gold text-xl whitespace-nowrap">{s.price}</span>
+                  <span className="font-heading text-gold text-xl whitespace-nowrap">{s.price}</span>
                 </div>
               ))}
             </div>
@@ -349,7 +349,7 @@ function Menu() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">Our Menu</p>
-          <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-4">Classic French Cuisine</h2>
+          <h2 className="text-4xl md:text-6xl font-heading text-cream mb-4">Classic French Cuisine</h2>
           <p className="font-script text-gold text-3xl mb-4">le carte &mdash; made with love</p>
           <p className="text-xl text-cream/75 max-w-2xl mx-auto">
             Authentic Provençal recipes and French classics, crafted with the finest ingredients.
@@ -359,14 +359,14 @@ function Menu() {
           {categories.map((cat, i) => (
             <div key={i} className="rounded-2xl bg-cream border-2 border-gold shadow-lg p-8">
               <p className="font-script text-gold text-2xl mb-1 text-center">{cat.script}</p>
-              <h3 className="text-2xl font-lobster text-burgundy mb-8 text-center pb-4 border-b-2 border-gold/40">
+              <h3 className="text-2xl font-heading text-burgundy mb-8 text-center pb-4 border-b-2 border-gold/40">
                 {cat.name}
               </h3>
               <div className="space-y-6">
                 {cat.items.map((item, j) => (
                   <div key={j}>
                     <div className="flex justify-between items-baseline gap-3">
-                      <h4 className="font-lobster text-cocoa">{item.name}</h4>
+                      <h4 className="font-heading text-cocoa">{item.name}</h4>
                       <div className="flex-1 border-b-2 border-dotted border-gold/60 mx-2"></div>
                       <span className="text-burgundy font-bold whitespace-nowrap">{item.price}</span>
                     </div>
@@ -405,13 +405,13 @@ function Experience() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">The Experience</p>
-          <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-4">More Than a Meal</h2>
+          <h2 className="text-4xl md:text-6xl font-heading text-cream mb-4">More Than a Meal</h2>
           <p className="font-script text-gold text-3xl mb-4">un viaggio di sapori</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, i) => (
             <div key={i} className="text-center group border-2 border-transparent hover:border-gold rounded-2xl p-8 transition-all">
-              <p className="font-lobster text-gold text-6xl mb-4 group-hover:text-terracotta transition-colors">
+              <p className="font-heading text-gold text-6xl mb-4 group-hover:text-terracotta transition-colors">
                 {item.number}
               </p>
               <div className="flex items-center justify-center gap-3 mb-4">
@@ -419,7 +419,7 @@ function Experience() {
                 <span className="font-script text-gold text-2xl">&starf;</span>
                 <div className="h-px w-8 bg-gold/40"></div>
               </div>
-              <h3 className="text-xl font-lobster text-cream mb-3">{item.title}</h3>
+              <h3 className="text-xl font-heading text-cream mb-3">{item.title}</h3>
               <p className="text-cream/70 leading-relaxed">{item.text}</p>
             </div>
           ))}
@@ -456,7 +456,7 @@ function Testimonials() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">Guest Reviews</p>
-          <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-4">What Our Guests Say</h2>
+          <h2 className="text-4xl md:text-6xl font-heading text-cream mb-4">What Our Guests Say</h2>
           <p className="font-script text-gold text-3xl">parole dei nostri ospiti</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -469,11 +469,11 @@ function Testimonials() {
               </div>
               <p className="text-cocoa leading-relaxed mb-8 italic">&ldquo;{r.content}&rdquo;</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-burgundy text-gold flex items-center justify-center font-bold font-lobster text-xl">
+                <div className="w-12 h-12 rounded-full bg-burgundy text-gold flex items-center justify-center font-bold font-heading text-xl">
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-lobster text-cocoa text-lg">{r.name}</p>
+                  <p className="font-heading text-cocoa text-lg">{r.name}</p>
                   <p className="text-sm text-cocoa/70">{r.role}</p>
                 </div>
               </div>
@@ -492,7 +492,7 @@ function Reservation() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">Reservations</p>
-            <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-4">Book Your Table</h2>
+            <h2 className="text-4xl md:text-6xl font-heading text-cream mb-4">Book Your Table</h2>
             <p className="font-script text-gold text-3xl mb-6">prenota il tuo tavolo</p>
             <p className="text-xl text-cream/75 leading-relaxed mb-10">
               Join us for an evening of unforgettable dining. We recommend booking in advance
@@ -500,28 +500,28 @@ function Reservation() {
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4 bg-burgundy border-2 border-gold rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-lobster border border-gold/60">F</div>
+                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-heading border border-gold/60">F</div>
                 <div>
                   <p className="text-cream/60 text-sm">Phone</p>
                   <p className="text-lg font-semibold text-cream">+1 (555) 123-4567</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 bg-burgundy border-2 border-gold rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-lobster border border-gold/60">E</div>
+                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-heading border border-gold/60">E</div>
                 <div>
                   <p className="text-cream/60 text-sm">Email</p>
                   <p className="text-lg font-semibold text-cream">reserve@thecrescent.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 bg-burgundy border-2 border-gold rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-lobster border border-gold/60">A</div>
+                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-heading border border-gold/60">A</div>
                 <div>
                   <p className="text-cream/60 text-sm">Location</p>
                   <p className="text-lg font-semibold text-cream">128 Crescent Avenue, Downtown</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 bg-burgundy border-2 border-gold rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-lobster border border-gold/60">H</div>
+                <div className="w-12 h-12 rounded-full bg-wine text-gold flex items-center justify-center text-lg font-heading border border-gold/60">H</div>
                 <div>
                   <p className="text-cream/60 text-sm">Hours</p>
                   <p className="text-lg font-semibold text-cream">Tue - Sun: 5:30 PM - 11:00 PM</p>
@@ -532,7 +532,7 @@ function Reservation() {
           <div className="bg-cream border-2 border-gold rounded-2xl p-8 shadow-lg">
             <div className="text-center mb-8">
               <p className="font-script text-terracotta text-2xl">La Tua Tavola</p>
-              <h3 className="text-3xl font-lobster text-burgundy">Make a Reservation</h3>
+              <h3 className="text-3xl font-heading text-burgundy">Make a Reservation</h3>
             </div>
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div>
@@ -586,7 +586,7 @@ function CTA() {
     <section className="bg-burgundy py-20 px-4 sm:px-6 lg:px-8 border-y-2 border-gold/60">
       <div className="max-w-4xl mx-auto text-center">
         <p className="font-script text-gold text-3xl mb-4">Benvenuti a Casa</p>
-        <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-6">
+        <h2 className="text-4xl md:text-6xl font-heading text-cream mb-6">
           Ready to dine with us tonight?
         </h2>
         <p className="text-xl text-cream/85 max-w-xl mx-auto mb-10">
@@ -611,14 +611,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div>
-            <h3 className="text-3xl font-lobster text-cream mb-4">THE CRESCENT</h3>
+            <h3 className="text-3xl font-heading text-cream mb-4">THE CRESCENT</h3>
             <p className="font-script text-gold text-xl mb-3">La Dolce Vita</p>
             <p className="text-cream/60">
               Fine dining at its finest since 1998. Crafting unforgettable experiences, one dish at a time.
             </p>
           </div>
           <div>
-            <h4 className="font-lobster text-gold mb-4 text-xl">Hours</h4>
+            <h4 className="font-heading text-gold mb-4 text-xl">Hours</h4>
             <ul className="space-y-2 text-cream/60">
               <li>Mon: Closed</li>
               <li>Tue - Fri: 5:30 PM - 11:00 PM</li>
@@ -626,7 +626,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-lobster text-gold mb-4 text-xl">Contact</h4>
+            <h4 className="font-heading text-gold mb-4 text-xl">Contact</h4>
             <ul className="space-y-2 text-cream/60">
               <li>128 Crescent Avenue, Downtown</li>
               <li>+1 (555) 123-4567</li>
@@ -634,7 +634,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-lobster text-gold mb-4 text-xl">Follow Us</h4>
+            <h4 className="font-heading text-gold mb-4 text-xl">Follow Us</h4>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 rounded-full border-2 border-gold/60 flex items-center justify-center text-cream/70 hover:bg-burgundy hover:text-cream hover:border-burgundy transition-colors">
                 <span className="font-medium">f</span>
