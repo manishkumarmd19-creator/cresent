@@ -387,13 +387,32 @@ function MenuModal({
 
   return (
     <div className="fixed inset-0 z-[60] overflow-y-auto">
-      <div className="absolute inset-0">
+      <div className="fixed inset-0 pointer-events-none">
         <img
           src={menuBackground}
           alt="Luxurious French fine-dining restaurant interior"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover animate-slowzoom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-wine/60 via-wine/25 to-wine/75"></div>
+
+        <div className="absolute inset-x-0 pt-36 flex items-start justify-center select-none">
+          <span className="font-heading text-gold/[0.09] text-[12rem] md:text-[20rem] lg:text-[26rem] leading-none whitespace-nowrap">
+            Le Carte
+          </span>
+        </div>
+        <span className="absolute left-6 top-48 hidden lg:block font-script text-gold/70 text-6xl rotate-[-8deg] inline-block">
+          Mangia
+        </span>
+        <span className="absolute right-10 top-60 hidden lg:block font-heading text-gold/70 text-5xl rotate-[6deg] inline-block">
+          &ldquo;Salute!&rdquo;
+        </span>
+
+        <span className="absolute top-44 left-[18%] w-3 h-3 rounded-full bg-gold/50 blur-[2px] animate-twinkle"></span>
+        <span className="absolute top-72 right-[22%] w-2 h-2 rounded-full bg-cream/60 blur-[2px] animate-twinkle" style={{ animationDelay: "1.2s" }}></span>
+        <span className="absolute top-32 left-[45%] w-2.5 h-2.5 rounded-full bg-gold/40 blur-[2px] animate-twinkle" style={{ animationDelay: "2s" }}></span>
+        <span className="absolute bottom-40 left-[12%] w-2 h-2 rounded-full bg-gold/40 blur-[2px] animate-twinkle" style={{ animationDelay: "0.6s" }}></span>
+        <span className="absolute bottom-64 right-[14%] w-3 h-3 rounded-full bg-cream/50 blur-[2px] animate-twinkle" style={{ animationDelay: "2.8s" }}></span>
+        <span className="absolute top-1/2 right-[35%] w-2 h-2 rounded-full bg-gold/50 blur-[2px] animate-twinkle" style={{ animationDelay: "3.4s" }}></span>
       </div>
 
       <button
