@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Lobster, Montserrat } from "next/font/google";
+import { Lobster, Montserrat, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const lobster = Lobster({
   variable: "--font-lobster",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
   weight: "400",
   subsets: ["latin"],
 });
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lobster.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${lobster.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
