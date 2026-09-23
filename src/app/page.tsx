@@ -393,7 +393,7 @@ function MenuModal({
           alt="Luxurious French fine-dining restaurant interior"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-wine/90 via-wine/75 to-wine/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-wine/60 via-wine/25 to-wine/75"></div>
       </div>
 
       <button
