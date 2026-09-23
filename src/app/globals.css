@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #4a0e1c;
-  --foreground: #fff7e8;
+  --background: #fdf6e9;
+  --foreground: #403025;
 }
 
 @theme inline {
@@ -10,17 +10,35 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
   --font-lobster: var(--font-lobster);
-  --color-wine: #4a0e1c;
-  --color-gold: #d6b878;
-  --color-cream: #fff7e8;
-  --color-cocoa: #4a3026;
-  --color-burgundy: #7a1f2b;
-  --color-terracotta: #c97852;
-  --color-sage: #687052;
+  --font-script: var(--font-great-vibes);
+  --color-rosso: #c22b2b;
+  --color-rosso-dark: #8e1f1f;
+  --color-cream: #fdf6e9;
+  --color-cream-deep: #f6ecd9;
+  --color-cocoa: #403025;
+  --color-gold: #cfaa6b;
+  --color-sage: #6b7553;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
