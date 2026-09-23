@@ -44,24 +44,29 @@ const marqueeWords = [
   "La Dolce Vita",
 ];
 
+const menuBackground =
+  "https://images.pexels.com/photos/2504911/pexels-photo-2504911.jpeg?auto=compress&cs=tinysrgb&w=1920";
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-wine">
-      <Navbar />
-      <Hero />
+      <Navbar onOpenMenu={() => setMenuOpen(true)} />
+      <Hero onOpenMenu={() => setMenuOpen(true)} />
       <Marquee />
       <About />
-      <Menu />
       <Experience />
       <Testimonials />
       <Reservation />
-      <CTA />
+      <CTA onOpenMenu={() => setMenuOpen(true)} />
       <Footer />
+      <MenuModal open={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
   );
 }
 
-function Navbar() {
+function Navbar({ onOpenMenu }: { onOpenMenu: () => void }) {
   return (
     <nav className="fixed top-0 w-full bg-wine/90 backdrop-blur-md z-50 border-b-2 border-gold/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,9 +78,9 @@ function Navbar() {
             <a href="#about" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase font-semibold">
               About
             </a>
-            <a href="#menu" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase font-semibold">
+            <button onClick={onOpenMenu} className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase font-semibold">
               Menu
-            </a>
+            </button>
             <a href="#experience" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase font-semibold">
               Experience
             </a>
@@ -86,18 +91,23 @@ function Navbar() {
               Reserve a Table
             </a>
           </div>
-          <button className="md:hidden text-gold">
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <button onClick={onOpenMenu} className="text-gold font-heading text-lg">
+              Menu
+            </button>
+            <button className="text-gold">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
 
-function Hero() {
+function Hero({ onOpenMenu }: { onOpenMenu: () => void }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -178,9 +188,9 @@ function Hero() {
               <a href="#reserve" className="bg-burgundy text-cream px-10 py-4 rounded-full text-lg font-semibold hover:bg-terracotta transition-colors shadow-lg border-2 border-gold/50">
                 Reserve Your Table
               </a>
-              <a href="#menu" className="bg-transparent text-gold px-10 py-4 rounded-full text-lg font-semibold border-2 border-gold hover:bg-gold/10 transition-colors">
-                Order This Dish
-              </a>
+              <button onClick={onOpenMenu} className="bg-transparent text-gold px-10 py-4 rounded-full text-lg font-semibold border-2 border-gold hover:bg-gold/10 transition-colors">
+                View the Menu
+              </button>
             </div>
             <p className="mt-8 text-4xl font-heading text-gold">{slide.price}</p>
           </div>
@@ -313,7 +323,13 @@ function About() {
   );
 }
 
-function Menu() {
+function MenuModal({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
   const categories = [
     {
       name: "Starters & Soups",
@@ -355,20 +371,55 @@ function Menu() {
     },
   ];
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
   return (
-    <section id="menu" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+    <div className="fixed inset-0 z-[60] overflow-y-auto">
+      <div className="absolute inset-0">
+        <img
+          src={menuBackground}
+          alt="Luxurious French fine-dining restaurant interior"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-wine/90 via-wine/75 to-wine/95"></div>
+      </div>
+
+      <button
+        onClick={onClose}
+        className="fixed top-5 right-5 w-12 h-12 rounded-full bg-wine/80 border-2 border-gold text-gold flex items-center justify-center hover:bg-burgundy hover:text-cream transition-colors z-[70]"
+        aria-label="Close menu"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="text-center mb-14">
           <p className="uppercase tracking-[0.35em] text-gold font-semibold text-sm mb-4">Our Menu</p>
           <h2 className="text-4xl md:text-6xl font-heading text-cream mb-4">Classic French Cuisine</h2>
           <p className="font-script text-gold text-3xl mb-4">le carte &mdash; made with love</p>
-          <p className="text-xl text-cream/75 max-w-2xl mx-auto">
-            Authentic Provençal recipes and French classics, crafted with the finest ingredients.
-          </p>
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px w-20 bg-gold/50"></div>
+            <span className="font-heading text-gold text-xl">&starf;</span>
+            <div className="h-px w-20 bg-gold/50"></div>
+          </div>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {categories.map((cat, i) => (
-            <div key={i} className="rounded-2xl bg-cream border-2 border-gold shadow-lg p-8">
+            <div key={i} className="rounded-2xl bg-cream border-2 border-gold shadow-2xl p-8">
               <p className="font-script text-gold text-2xl mb-1 text-center">{cat.script}</p>
               <h3 className="text-2xl font-heading text-burgundy mb-8 text-center pb-4 border-b-2 border-gold/40">
                 {cat.name}
@@ -394,12 +445,12 @@ function Menu() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="#reserve" className="inline-block bg-burgundy text-cream border-2 border-gold px-10 py-3.5 rounded-full font-semibold hover:bg-terracotta transition-colors">
-            View Full Menu
+          <a href="#reserve" onClick={onClose} className="inline-block bg-burgundy text-cream border-2 border-gold px-10 py-3.5 rounded-full font-semibold hover:bg-terracotta transition-colors">
+            Reserve a Table
           </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -592,7 +643,7 @@ function Reservation() {
   );
 }
 
-function CTA() {
+function CTA({ onOpenMenu }: { onOpenMenu: () => void }) {
   return (
     <section className="bg-burgundy py-20 px-4 sm:px-6 lg:px-8 border-y-2 border-gold/60">
       <div className="max-w-4xl mx-auto text-center">
@@ -607,9 +658,9 @@ function CTA() {
           <a href="#reserve" className="bg-cream text-burgundy px-10 py-4 rounded-full text-lg font-bold hover:bg-terracotta hover:text-cream transition-colors border-2 border-cream">
             Reserve a Table
           </a>
-          <a href="#menu" className="bg-transparent text-cream px-10 py-4 rounded-full text-lg font-semibold border-2 border-cream hover:bg-wine transition-colors">
+          <button onClick={onOpenMenu} className="bg-transparent text-cream px-10 py-4 rounded-full text-lg font-semibold border-2 border-cream hover:bg-wine transition-colors">
             Explore the Menu
-          </a>
+          </button>
         </div>
       </div>
     </section>
