@@ -113,6 +113,17 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-wine overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        src="https://res.cloudinary.com/dasvdqums/video/upload/v1790156648/crescent_video_delszq.mp4"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-wine/80 via-wine/60 to-wine/90 pointer-events-none"></div>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-heading text-gold/[0.06] text-[24rem] md:text-[34rem] leading-none whitespace-nowrap">
           Buon Appetito
