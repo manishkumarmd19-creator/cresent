@@ -5,45 +5,57 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    emoji: "🍷",
     title: "Coq au Vin",
+    accent: "Braise • Vino • Funghi",
     desc: "Chicken braised slowly in red wine, mushrooms and pearl onions.",
     price: "₹2,850",
     tags: ["Chef's Special", "Slow-Cooked"],
   },
   {
-    emoji: "🥘",
     title: "Bœuf Bourguignon",
+    accent: "Stufato • Carote • Erbe",
     desc: "Beef stew cooked with red wine, carrots and fresh herbs.",
     price: "₹2,950",
     tags: ["Hearty", "Gluten-Free"],
   },
   {
-    emoji: "🐟",
     title: "Bouillabaisse",
+    accent: "Pesce • Zafferano • Rouille",
     desc: "Traditional Provençal fish stew with saffron and rouille.",
     price: "₹3,000",
     tags: ["Fresh Fish", "Seafood"],
   },
   {
-    emoji: "🍮",
     title: "Crème Brûlée",
+    accent: "Vaniglia • Zucchero Bruciato",
     desc: "Baked custard with caramelized sugar crust and vanilla.",
     price: "₹2,800",
     tags: ["Vegetarian", "Signature Dessert"],
   },
 ];
 
+const marqueeWords = [
+  "Traditional Recipes",
+  "Fresh Pasta",
+  "Vintage Spirit",
+  "Handmade Desserts",
+  "Since 1998",
+  "Fine Dining",
+  "La Dolce Vita",
+];
+
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-wine">
+    <div className="flex flex-col min-h-screen bg-cream">
       <Navbar />
       <Hero />
+      <Marquee />
       <About />
       <Menu />
       <Experience />
       <Testimonials />
       <Reservation />
+      <CTA />
       <Footer />
     </div>
   );
@@ -51,30 +63,30 @@ export default function Home() {
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 w-full bg-wine/90 backdrop-blur-md z-50 border-b border-gold/30">
+    <nav className="fixed top-0 w-full bg-cream/90 backdrop-blur-md z-50 border-b-2 border-rosso">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="text-2xl font-lobster text-gold tracking-wide">
+          <Link href="/" className="text-2xl font-lobster text-rosso tracking-wide">
             THE CRESCENT
           </Link>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase">
+            <a href="#about" className="text-cocoa/70 hover:text-rosso transition-colors text-sm tracking-wide uppercase font-semibold">
               About
             </a>
-            <a href="#menu" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase">
+            <a href="#menu" className="text-cocoa/70 hover:text-rosso transition-colors text-sm tracking-wide uppercase font-semibold">
               Menu
             </a>
-            <a href="#experience" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase">
+            <a href="#experience" className="text-cocoa/70 hover:text-rosso transition-colors text-sm tracking-wide uppercase font-semibold">
               Experience
             </a>
-            <a href="#reviews" className="text-cream/80 hover:text-gold transition-colors text-sm tracking-wide uppercase">
+            <a href="#reviews" className="text-cocoa/70 hover:text-rosso transition-colors text-sm tracking-wide uppercase font-semibold">
               Reviews
             </a>
-            <a href="#reserve" className="bg-burgundy text-cream px-6 py-3 rounded-full font-medium hover:bg-terracotta transition-colors text-sm tracking-wide border border-gold/50">
+            <a href="#reserve" className="bg-rosso text-cream px-6 py-3 rounded-full font-medium hover:bg-rosso-dark transition-colors text-sm tracking-wide border-2 border-rosso-dark">
               Reserve a Table
             </a>
           </div>
-          <button className="md:hidden text-gold">
+          <button className="md:hidden text-rosso">
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -100,61 +112,73 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-wine">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-wine/60 via-wine/70 to-wine"></div>
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <circle cx="50" cy="40" r="35" fill="none" stroke="#d6b878" strokeWidth="0.2" />
-            <circle cx="50" cy="40" r="25" fill="none" stroke="#d6b878" strokeWidth="0.15" />
-            <circle cx="50" cy="40" r="15" fill="none" stroke="#d6b878" strokeWidth="0.1" />
-          </svg>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center bg-cream overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <span className="font-lobster text-rosso/[0.05] text-[24rem] md:text-[34rem] leading-none whitespace-nowrap">
+          Buon Appetito
+        </span>
+      </div>
+      <div className="absolute left-8 top-32 hidden lg:block">
+        <span className="font-script text-rosso text-6xl rotate-[-8deg] inline-block">Mangia</span>
+      </div>
+      <div className="absolute right-10 top-40 hidden lg:block">
+        <span className="font-lobster text-gold text-4xl rotate-[6deg] inline-block">&ldquo;Salute!&rdquo;</span>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-40 w-full">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-40 w-full min-h-screen">
+        <p className="uppercase tracking-[0.55em] text-rosso font-semibold text-xs sm:text-sm mb-5">
+          Ristorante &middot; Trattoria &middot; Degustazione
+        </p>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-px w-16 bg-rosso/50"></div>
+          <span className="font-script text-gold text-2xl">La Dolce Vita</span>
+          <div className="h-px w-16 bg-rosso/50"></div>
+        </div>
+
         {slides.map((slide, i) => (
           <div
             key={i}
             className={
               i === current
                 ? "transition-opacity duration-700"
-                : "transition-opacity duration-700 absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0"
+                : "transition-opacity duration-700 absolute inset-x-0 top-1/3 flex flex-col items-center pointer-events-none opacity-0"
             }
           >
-            <div className="text-8xl mb-8 drop-shadow-lg">{slide.emoji}</div>
-            <p className="text-gold font-light tracking-[0.4em] uppercase text-sm mb-6">
-              Signature Dish {i + 1} of {slides.length}
-            </p>
-            <h2 className="text-6xl md:text-8xl font-lobster text-cream mb-6 leading-tight">
+            <p className="font-script text-rosso-dark text-2xl md:text-3xl mb-4">{slide.accent}</p>
+            <h2 className="text-6xl md:text-8xl font-lobster text-rosso mb-5 leading-none tracking-wide">
               {slide.title}
             </h2>
-            <p className="text-xl md:text-2xl text-cream/80 max-w-xl mx-auto mb-8 leading-relaxed font-light">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-1 w-12 rounded-full bg-rosso/40"></div>
+              <span className="font-lobster text-gold text-xl">&starf;</span>
+              <div className="h-1 w-12 rounded-full bg-rosso/40"></div>
+            </div>
+            <p className="text-xl md:text-2xl text-cocoa/75 max-w-xl mx-auto mb-8 leading-relaxed">
               {slide.desc}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
               {slide.tags.map((tag, j) => (
-                <span key={j} className="bg-sage text-cream px-4 py-1.5 rounded-full text-sm border border-gold/30">
-                  🌿 {tag}
+                <span key={j} className="bg-sage text-cream px-4 py-1.5 rounded-full text-sm border-2 border-sage">
+                  {tag}
                 </span>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="#reserve" className="bg-burgundy text-cream px-10 py-4 rounded-full text-lg font-medium hover:bg-terracotta transition-colors shadow-lg border border-gold/50">
+              <a href="#reserve" className="bg-rosso text-cream px-10 py-4 rounded-full text-lg font-semibold hover:bg-rosso-dark transition-colors shadow-lg border-2 border-rosso-dark">
                 Reserve Your Table
               </a>
-              <a href="#menu" className="bg-cream text-burgundy px-10 py-4 rounded-full text-lg font-medium hover:bg-gold transition-colors border border-gold/50">
+              <a href="#menu" className="bg-transparent text-rosso px-10 py-4 rounded-full text-lg font-semibold border-2 border-rosso hover:bg-rosso/10 transition-colors">
                 Order This Dish
               </a>
             </div>
-            <p className="mt-8 text-3xl font-lobster text-gold">{slide.price}</p>
+            <p className="mt-8 text-4xl font-lobster text-rosso">{slide.price}</p>
           </div>
         ))}
 
         <div className="relative mt-12 flex items-center justify-center gap-6">
           <button
             onClick={() => goTo(current - 1)}
-            className="w-12 h-12 rounded-full border border-gold/60 text-gold flex items-center justify-center hover:bg-burgundy hover:text-cream transition-colors"
+            className="w-12 h-12 rounded-full border-2 border-rosso text-rosso flex items-center justify-center hover:bg-rosso hover:text-cream transition-colors"
             aria-label="Previous slide"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,8 +192,8 @@ function Hero() {
                 onClick={() => goTo(i)}
                 className={
                   i === current
-                    ? "w-10 h-2.5 rounded-full bg-gold transition-all"
-                    : "w-2.5 h-2.5 rounded-full bg-cream/40 hover:bg-gold transition-all"
+                    ? "w-10 h-3 rounded-full bg-rosso transition-all"
+                    : "w-3 h-3 rounded-full bg-rosso/30 hover:bg-rosso/60 transition-all"
                 }
                 aria-label={`Go to slide ${i + 1}`}
               />
@@ -177,7 +201,7 @@ function Hero() {
           </div>
           <button
             onClick={() => goTo(current + 1)}
-            className="w-12 h-12 rounded-full border border-gold/60 text-gold flex items-center justify-center hover:bg-burgundy hover:text-cream transition-colors"
+            className="w-12 h-12 rounded-full border-2 border-rosso text-rosso flex items-center justify-center hover:bg-rosso hover:text-cream transition-colors"
             aria-label="Next slide"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,70 +214,88 @@ function Hero() {
   );
 }
 
+function Marquee() {
+  return (
+    <div className="bg-rosso overflow-hidden py-4 border-y-4 border-rosso-dark">
+      <div className="marquee-track whitespace-nowrap flex">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0 items-center">
+            {marqueeWords.map((word, j) => (
+              <span key={j} className="text-cream font-lobster text-2xl mx-8 tracking-wide">
+                {word} <span className="text-gold mx-4">&star;</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function About() {
-  const highlights = [
-    { emoji: "🍽️", title: "Seasonal Cuisine", text: "Hand-picked ingredients from local farms, crafted into exceptional dishes." },
-    { emoji: "🍷", title: "Curated Wine Cellar", text: "Over 300 bottles from the world's finest vineyards, perfectly paired." },
-    { emoji: "👨‍🍳", title: "Award-Winning Chefs", text: "Our culinary team has been recognized for excellence for over two decades." },
+  const specials = [
+    { name: "Coq au Vin", price: "₹2,850" },
+    { name: "Bœuf Bourguignon", price: "₹2,950" },
+    { name: "Bouillabaisse", price: "₹3,000" },
+    { name: "Crème Brûlée", price: "₹2,800" },
+    { name: "Tarte Tatin", price: "₹2,700" },
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">
-              Our Story
+            <p className="uppercase tracking-[0.35em] text-rosso font-semibold text-sm mb-4">
+              La Nostra Storia
             </p>
-            <h2 className="text-4xl md:text-5xl font-lobster text-cream mb-6">
+            <h2 className="text-4xl md:text-6xl font-lobster text-rosso mb-6 leading-snug">
               Where Tradition Meets Modern Gastronomy
             </h2>
-            <p className="text-lg text-cream/75 leading-relaxed mb-8">
+            <p className="text-lg text-cocoa leading-relaxed mb-8">
               Since 1998, THE CRESCENT has been a sanctuary for food lovers. Nestled in the heart of the city,
               our restaurant combines classic culinary traditions with bold, contemporary flavors.
             </p>
-            <p className="text-lg text-cream/75 leading-relaxed mb-10">
+            <p className="text-lg text-cocoa leading-relaxed mb-10">
               Every element — from the hand-crafted menu to the warm, intimate ambiance — is designed to create
               moments worth savoring.
             </p>
             <div className="grid sm:grid-cols-3 gap-6">
-              <div className="bg-burgundy border border-gold/40 rounded-2xl p-6 text-center">
-                <p className="text-3xl font-lobster text-gold mb-1">27+</p>
-                <p className="text-sm text-cream/80">Years of Excellence</p>
+              <div className="bg-white border-2 border-rosso rounded-2xl p-6 text-center shadow-sm">
+                <p className="text-3xl font-lobster text-rosso mb-1">27+</p>
+                <p className="text-sm text-cocoa/70">Years of Excellence</p>
               </div>
-              <div className="bg-burgundy border border-gold/40 rounded-2xl p-6 text-center">
-                <p className="text-3xl font-lobster text-gold mb-1">45+</p>
-                <p className="text-sm text-cream/80">Signature Dishes</p>
+              <div className="bg-white border-2 border-rosso rounded-2xl p-6 text-center shadow-sm">
+                <p className="text-3xl font-lobster text-rosso mb-1">45+</p>
+                <p className="text-sm text-cocoa/70">Signature Dishes</p>
               </div>
-              <div className="bg-burgundy border border-gold/40 rounded-2xl p-6 text-center">
-                <p className="text-3xl font-lobster text-gold mb-1">150k+</p>
-                <p className="text-sm text-cream/80">Guests Served</p>
+              <div className="bg-white border-2 border-rosso rounded-2xl p-6 text-center shadow-sm">
+                <p className="text-3xl font-lobster text-rosso mb-1">150k+</p>
+                <p className="text-sm text-cocoa/70">Guests Served</p>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-[3/4] rounded-2xl bg-cream text-7xl flex items-center justify-center border border-gold">
-              🍝
+          <div className="rounded-3xl bg-rosso border-4 border-gold p-10 shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
+              <span className="font-lobster text-cream text-[10rem] leading-none absolute -bottom-6 -right-4">
+                Bellissimo
+              </span>
             </div>
-            <div className="aspect-[3/4] rounded-2xl bg-burgundy text-7xl flex items-center justify-center mt-8 border border-gold">
-              🥂
+            <p className="font-script text-gold text-3xl mb-6 text-center">Carta del Giorno</p>
+            <h3 className="text-center font-lobster text-cream text-3xl mb-10 border-b-2 border-gold/40 pb-6">
+              Today&apos;s Specials
+            </h3>
+            <div className="space-y-6">
+              {specials.map((s, i) => (
+                <div key={i} className="flex justify-between items-baseline gap-4">
+                  <span className="font-lobster text-cream text-xl">{s.name}</span>
+                  <div className="flex-1 border-b-2 border-dotted border-gold/50 mx-2"></div>
+                  <span className="font-lobster text-gold text-xl whitespace-nowrap">{s.price}</span>
+                </div>
+              ))}
             </div>
-            <div className="aspect-[3/4] rounded-2xl bg-gold text-7xl flex items-center justify-center -mt-4">
-              🥩
-            </div>
-            <div className="aspect-[3/4] rounded-2xl bg-terracotta text-7xl flex items-center justify-center mt-4">
-              🍰
-            </div>
+            <p className="font-script text-cream/80 text-2xl text-center mt-10">&ldquo;Mangiare bene è vivere bene.&rdquo;</p>
           </div>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
-          {highlights.map((h, i) => (
-            <div key={i} className="p-8 rounded-2xl bg-burgundy border border-gold/40 hover:shadow-xl hover:border-gold transition-all">
-              <div className="text-4xl mb-4">{h.emoji}</div>
-              <h3 className="text-xl font-lobster text-gold mb-3">{h.title}</h3>
-              <p className="text-cream/75 leading-relaxed">{h.text}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -264,7 +306,7 @@ function Menu() {
   const categories = [
     {
       name: "Starters & Soups",
-      icon: "🦪",
+      script: "Antipasti e Zuppe",
       items: [
         { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550", tag: "Classic" },
         { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600", tag: "Signature" },
@@ -276,7 +318,7 @@ function Menu() {
     },
     {
       name: "Main Courses",
-      icon: "🥩",
+      script: "Secondi Piatti",
       items: [
         { name: "Coq au Vin", desc: "Chicken braised in wine", price: "₹2,850", tag: "Chef's Special" },
         { name: "Bœuf Bourguignon", desc: "Beef stew cooked with red wine", price: "₹2,950", tag: "Slow-Cooked" },
@@ -291,7 +333,7 @@ function Menu() {
     },
     {
       name: "Desserts",
-      icon: "🍰",
+      script: "Dolci",
       items: [
         { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600", tag: "Classic" },
         { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700", tag: "Signature" },
@@ -303,34 +345,37 @@ function Menu() {
   ];
 
   return (
-    <section id="menu" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
+    <section id="menu" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream-deep">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">Our Menu</p>
-          <h2 className="text-4xl md:text-5xl font-lobster text-cream mb-6">Classic French Cuisine</h2>
-          <p className="text-xl text-cream/75 max-w-2xl mx-auto">
+          <p className="uppercase tracking-[0.35em] text-rosso font-semibold text-sm mb-4">Our Menu</p>
+          <h2 className="text-4xl md:text-6xl font-lobster text-rosso mb-4">Classic French Cuisine</h2>
+          <p className="font-script text-rosso-dark text-3xl mb-4">le carte &mdash; made with love</p>
+          <p className="text-xl text-cocoa/75 max-w-2xl mx-auto">
             Authentic Provençal recipes and French classics, crafted with the finest ingredients.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {categories.map((cat, i) => (
-            <div key={i} className="rounded-2xl bg-burgundy border border-gold/40 p-8">
-              <div className="text-4xl mb-4">{cat.icon}</div>
-              <h3 className="text-2xl font-lobster text-gold mb-6">{cat.name}</h3>
+            <div key={i} className="rounded-2xl bg-white border-2 border-rosso shadow-sm p-8">
+              <p className="font-script text-gold text-2xl mb-1 text-center">{cat.script}</p>
+              <h3 className="text-2xl font-lobster text-rosso mb-8 text-center pb-4 border-b-2 border-rosso/20">
+                {cat.name}
+              </h3>
               <div className="space-y-6">
                 {cat.items.map((item, j) => (
                   <div key={j}>
-                    <div className="flex justify-between items-baseline gap-4">
-                      <h4 className="font-semibold text-cream">{item.name}</h4>
-                      <div className="flex-1 border-b border-dotted border-gold/40 mx-2"></div>
-                      <span className="text-gold font-semibold whitespace-nowrap">{item.price}</span>
+                    <div className="flex justify-between items-baseline gap-3">
+                      <h4 className="font-lobster text-cocoa">{item.name}</h4>
+                      <div className="flex-1 border-b-2 border-dotted border-rosso/30 mx-2"></div>
+                      <span className="text-rosso font-bold whitespace-nowrap">{item.price}</span>
                     </div>
                     <div className="mt-2 flex items-center gap-2">
-                      <span className="bg-sage text-cream px-2.5 py-0.5 rounded-full text-xs border border-gold/30">
-                        🌿 {item.tag}
+                      <span className="bg-sage text-cream px-2.5 py-0.5 rounded-full text-xs">
+                        {item.tag}
                       </span>
                     </div>
-                    <p className="text-sm text-cream/65 mt-1.5 leading-relaxed">{item.desc}</p>
+                    <p className="text-sm text-cocoa/70 mt-1.5 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -338,7 +383,7 @@ function Menu() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="#reserve" className="inline-block bg-burgundy border-2 border-gold text-cream px-8 py-3 rounded-full hover:bg-terracotta transition-colors">
+          <a href="#reserve" className="inline-block bg-rosso text-cream border-2 border-rosso-dark px-10 py-3.5 rounded-full font-semibold hover:bg-rosso-dark transition-colors">
             View Full Menu
           </a>
         </div>
@@ -349,30 +394,33 @@ function Menu() {
 
 function Experience() {
   const items = [
-    { emoji: "🕯️", title: "Intimate Ambiance", text: "Candlelit dining room with a warm, sophisticated atmosphere for every occasion." },
-    { emoji: "🎻", title: "Live Music", text: "Enjoy elegant live piano and violin performances every Friday and Saturday evening." },
-    { emoji: "🍾", title: "Private Dining", text: "Exclusive private rooms for celebrations, business dinners, and special events." },
-    { emoji: "👑", title: "White Glove Service", text: "Impeccable, personalized service from our dedicated team from the moment you arrive." },
+    { number: "01", title: "Intimate Ambiance", text: "Candlelit dining room with a warm, sophisticated atmosphere for every occasion." },
+    { number: "02", title: "Live Music", text: "Enjoy elegant live piano and violin performances every Friday and Saturday evening." },
+    { number: "03", title: "Private Dining", text: "Exclusive private rooms for celebrations, business dinners, and special events." },
+    { number: "04", title: "White Glove Service", text: "Impeccable, personalized service from our dedicated team from the moment you arrive." },
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
+    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">The Experience</p>
-          <h2 className="text-4xl md:text-5xl font-lobster text-cream mb-6">More Than a Meal</h2>
-          <p className="text-xl text-cream/75 max-w-2xl mx-auto">
-            Every visit at THE CRESCENT is a journey worth remembering.
-          </p>
+          <p className="uppercase tracking-[0.35em] text-rosso font-semibold text-sm mb-4">The Experience</p>
+          <h2 className="text-4xl md:text-6xl font-lobster text-rosso mb-4">More Than a Meal</h2>
+          <p className="font-script text-rosso-dark text-3xl mb-4">un viaggio di sapori</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((item, i) => (
-            <div key={i} className="text-center group">
-              <div className="w-24 h-24 mx-auto rounded-full bg-burgundy border-2 border-gold flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform">
-                {item.emoji}
+            <div key={i} className="text-center group border-2 border-transparent hover:border-rosso rounded-2xl p-8 transition-all">
+              <p className="font-lobster text-gold text-6xl mb-4 group-hover:text-rosso transition-colors">
+                {item.number}
+              </p>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-px w-8 bg-rosso/40"></div>
+                <span className="font-script text-rosso text-2xl">&starf;</span>
+                <div className="h-px w-8 bg-rosso/40"></div>
               </div>
-              <h3 className="text-xl font-lobster text-gold mb-3">{item.title}</h3>
-              <p className="text-cream/75 leading-relaxed">{item.text}</p>
+              <h3 className="text-xl font-lobster text-rosso mb-3">{item.title}</h3>
+              <p className="text-cocoa/75 leading-relaxed">{item.text}</p>
             </div>
           ))}
         </div>
@@ -404,27 +452,28 @@ function Testimonials() {
   ];
 
   return (
-    <section id="reviews" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
+    <section id="reviews" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream-deep">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">Guest Reviews</p>
-          <h2 className="text-4xl md:text-5xl font-lobster text-cream mb-6">What Our Guests Say</h2>
+          <p className="uppercase tracking-[0.35em] text-rosso font-semibold text-sm mb-4">Guest Reviews</p>
+          <h2 className="text-4xl md:text-6xl font-lobster text-rosso mb-4">What Our Guests Say</h2>
+          <p className="font-script text-rosso-dark text-3xl">parole dei nostri ospiti</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((r, i) => (
-            <div key={i} className="p-8 rounded-2xl bg-cream shadow-lg">
-              <div className="flex gap-1 text-gold mb-6">
+            <div key={i} className="p-8 rounded-2xl bg-white border-2 border-rosso shadow-sm border-t-8">
+              <div className="flex gap-1 text-rosso mb-6">
                 {Array.from({ length: r.stars }).map((_, s) => (
                   <span key={s} className="text-lg">&#9733;</span>
                 ))}
               </div>
               <p className="text-cocoa leading-relaxed mb-8 italic">&ldquo;{r.content}&rdquo;</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-burgundy text-gold flex items-center justify-center font-bold font-lobster text-lg">
+                <div className="w-12 h-12 rounded-full bg-rosso text-cream flex items-center justify-center font-bold font-lobster text-xl">
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-semibold text-cocoa">{r.name}</p>
+                  <p className="font-lobster text-cocoa text-lg">{r.name}</p>
                   <p className="text-sm text-cocoa/70">{r.role}</p>
                 </div>
               </div>
@@ -438,70 +487,74 @@ function Testimonials() {
 
 function Reservation() {
   return (
-    <section id="reserve" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
+    <section id="reserve" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">Reservations</p>
-            <h2 className="text-4xl md:text-5xl font-lobster text-cream mb-6">Book Your Table</h2>
-            <p className="text-xl text-cream/75 leading-relaxed mb-10">
+            <p className="uppercase tracking-[0.35em] text-rosso font-semibold text-sm mb-4">Reservations</p>
+            <h2 className="text-4xl md:text-6xl font-lobster text-rosso mb-4">Book Your Table</h2>
+            <p className="font-script text-rosso-dark text-3xl mb-6">prenota il tuo tavolo</p>
+            <p className="text-xl text-cocoa/75 leading-relaxed mb-10">
               Join us for an evening of unforgettable dining. We recommend booking in advance
               to secure your preferred table and time.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center gap-4 bg-burgundy border border-gold/40 rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-xl border border-gold/50">📞</div>
+              <div className="flex items-center gap-4 bg-white border-2 border-rosso rounded-2xl p-5">
+                <div className="w-12 h-12 rounded-full bg-rosso text-cream flex items-center justify-center text-lg font-lobster">F</div>
                 <div>
-                  <p className="text-cream/60 text-sm">Phone</p>
-                  <p className="text-lg font-medium text-cream">+1 (555) 123-4567</p>
+                  <p className="text-cocoa/60 text-sm">Phone</p>
+                  <p className="text-lg font-semibold text-cocoa">+1 (555) 123-4567</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-burgundy border border-gold/40 rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-xl border border-gold/50">📧</div>
+              <div className="flex items-center gap-4 bg-white border-2 border-rosso rounded-2xl p-5">
+                <div className="w-12 h-12 rounded-full bg-rosso text-cream flex items-center justify-center text-lg font-lobster">E</div>
                 <div>
-                  <p className="text-cream/60 text-sm">Email</p>
-                  <p className="text-lg font-medium text-cream">reserve@thecrescent.com</p>
+                  <p className="text-cocoa/60 text-sm">Email</p>
+                  <p className="text-lg font-semibold text-cocoa">reserve@thecrescent.com</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-burgundy border border-gold/40 rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-xl border border-gold/50">📍</div>
+              <div className="flex items-center gap-4 bg-white border-2 border-rosso rounded-2xl p-5">
+                <div className="w-12 h-12 rounded-full bg-rosso text-cream flex items-center justify-center text-lg font-lobster">A</div>
                 <div>
-                  <p className="text-cream/60 text-sm">Location</p>
-                  <p className="text-lg font-medium text-cream">128 Crescent Avenue, Downtown</p>
+                  <p className="text-cocoa/60 text-sm">Location</p>
+                  <p className="text-lg font-semibold text-cocoa">128 Crescent Avenue, Downtown</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-burgundy border border-gold/40 rounded-2xl p-5">
-                <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-xl border border-gold/50">🕐</div>
+              <div className="flex items-center gap-4 bg-white border-2 border-rosso rounded-2xl p-5">
+                <div className="w-12 h-12 rounded-full bg-rosso text-cream flex items-center justify-center text-lg font-lobster">H</div>
                 <div>
-                  <p className="text-cream/60 text-sm">Hours</p>
-                  <p className="text-lg font-medium text-cream">Tue - Sun: 5:30 PM - 11:00 PM</p>
+                  <p className="text-cocoa/60 text-sm">Hours</p>
+                  <p className="text-lg font-semibold text-cocoa">Tue - Sun: 5:30 PM - 11:00 PM</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-cream rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-lobster text-burgundy mb-8 text-center">Make a Reservation</h3>
+          <div className="bg-white border-2 border-rosso rounded-2xl p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <p className="font-script text-gold text-2xl">La Tua Tavola</p>
+              <h3 className="text-3xl font-lobster text-rosso">Make a Reservation</h3>
+            </div>
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label className="block text-cocoa/70 text-sm mb-2">Full Name</label>
+                <label className="block text-cocoa/70 text-sm font-semibold mb-2">Full Name</label>
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="w-full px-5 py-3 rounded-full bg-cream border border-gold text-cocoa placeholder-cocoa/40 focus:border-burgundy focus:outline-none transition-colors"
+                  className="w-full px-5 py-3 rounded-full bg-cream border-2 border-rosso/30 text-cocoa placeholder-cocoa/40 focus:border-rosso focus:outline-none transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-cocoa/70 text-sm mb-2">Email</label>
+                <label className="block text-cocoa/70 text-sm font-semibold mb-2">Email</label>
                 <input
                   type="email"
                   placeholder="you@example.com"
-                  className="w-full px-5 py-3 rounded-full bg-cream border border-gold text-cocoa placeholder-cocoa/40 focus:border-burgundy focus:outline-none transition-colors"
+                  className="w-full px-5 py-3 rounded-full bg-cream border-2 border-rosso/30 text-cocoa placeholder-cocoa/40 focus:border-rosso focus:outline-none transition-colors"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-cocoa/70 text-sm mb-2">Guests</label>
-                  <select className="w-full px-5 py-3 rounded-full bg-cream border border-gold text-cocoa focus:border-burgundy focus:outline-none transition-colors">
+                  <label className="block text-cocoa/70 text-sm font-semibold mb-2">Guests</label>
+                  <select className="w-full px-5 py-3 rounded-full bg-cream border-2 border-rosso/30 text-cocoa focus:border-rosso focus:outline-none transition-colors">
                     <option>1 Guest</option>
                     <option>2 Guests</option>
                     <option>3 Guests</option>
@@ -510,14 +563,14 @@ function Reservation() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-cocoa/70 text-sm mb-2">Date</label>
+                  <label className="block text-cocoa/70 text-sm font-semibold mb-2">Date</label>
                   <input
                     type="date"
-                    className="w-full px-5 py-3 rounded-full bg-cream border border-gold text-cocoa focus:border-burgundy focus:outline-none transition-colors"
+                    className="w-full px-5 py-3 rounded-full bg-cream border-2 border-rosso/30 text-cocoa focus:border-rosso focus:outline-none transition-colors"
                   />
                 </div>
               </div>
-              <button type="submit" className="w-full bg-burgundy text-cream py-4 rounded-full font-medium hover:bg-terracotta transition-colors border border-gold/50">
+              <button type="submit" className="w-full bg-rosso text-cream py-4 rounded-full font-semibold hover:bg-rosso-dark transition-colors border-2 border-rosso-dark">
                 Confirm Reservation
               </button>
             </form>
@@ -528,19 +581,44 @@ function Reservation() {
   );
 }
 
+function CTA() {
+  return (
+    <section className="bg-rosso py-20 px-4 sm:px-6 lg:px-8 border-y-4 border-rosso-dark">
+      <div className="max-w-4xl mx-auto text-center">
+        <p className="font-script text-gold text-3xl mb-4">Benvenuti a Casa</p>
+        <h2 className="text-4xl md:text-6xl font-lobster text-cream mb-6">
+          Ready to dine with us tonight?
+        </h2>
+        <p className="text-xl text-cream/85 max-w-xl mx-auto mb-10">
+          Join us for an unforgettable evening of fine dining, fine wine, and fine company.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#reserve" className="bg-cream text-rosso px-10 py-4 rounded-full text-lg font-bold hover:bg-gold transition-colors border-2 border-cream">
+            Reserve a Table
+          </a>
+          <a href="#menu" className="bg-transparent text-cream px-10 py-4 rounded-full text-lg font-semibold border-2 border-cream hover:bg-rosso-dark transition-colors">
+            Explore the Menu
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="py-14 px-4 sm:px-6 lg:px-8 bg-wine border-t border-gold/30">
+    <footer className="py-14 px-4 sm:px-6 lg:px-8 bg-cocoa">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div>
-            <h3 className="text-2xl font-lobster text-gold mb-4 tracking-wide">THE CRESCENT</h3>
+            <h3 className="text-3xl font-lobster text-cream mb-4">THE CRESCENT</h3>
+            <p className="font-script text-gold text-xl mb-3">La Dolce Vita</p>
             <p className="text-cream/60">
               Fine dining at its finest since 1998. Crafting unforgettable experiences, one dish at a time.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-cream mb-4 tracking-wide uppercase text-sm">Hours</h4>
+            <h4 className="font-lobster text-gold mb-4 text-xl">Hours</h4>
             <ul className="space-y-2 text-cream/60">
               <li>Mon: Closed</li>
               <li>Tue - Fri: 5:30 PM - 11:00 PM</li>
@@ -548,7 +626,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-cream mb-4 tracking-wide uppercase text-sm">Contact</h4>
+            <h4 className="font-lobster text-gold mb-4 text-xl">Contact</h4>
             <ul className="space-y-2 text-cream/60">
               <li>128 Crescent Avenue, Downtown</li>
               <li>+1 (555) 123-4567</li>
@@ -556,21 +634,21 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-cream mb-4 tracking-wide uppercase text-sm">Follow Us</h4>
+            <h4 className="font-lobster text-gold mb-4 text-xl">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-cream/70 hover:bg-burgundy hover:text-cream hover:border-gold transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-gold/60 flex items-center justify-center text-cream/70 hover:bg-rosso hover:text-cream hover:border-rosso transition-colors">
                 <span className="font-medium">f</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-cream/70 hover:bg-burgundy hover:text-cream hover:border-gold transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-gold/60 flex items-center justify-center text-cream/70 hover:bg-rosso hover:text-cream hover:border-rosso transition-colors">
                 <span className="font-medium">in</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center text-cream/70 hover:bg-burgundy hover:text-cream hover:border-gold transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-gold/60 flex items-center justify-center text-cream/70 hover:bg-rosso hover:text-cream hover:border-rosso transition-colors">
                 <span className="font-medium">ig</span>
               </a>
             </div>
           </div>
         </div>
-        <div className="border-t border-gold/20 pt-8 text-center text-cream/50">
+        <div className="border-t-2 border-gold/20 pt-8 text-center text-cream/50">
           <p>&copy; 2026 THE CRESCENT. All rights reserved.</p>
         </div>
       </div>
