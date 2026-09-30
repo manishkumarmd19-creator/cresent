@@ -335,38 +335,38 @@ function MenuModal({
       name: "Starters & Soups",
       script: "Antipasti e Zuppe",
       items: [
-        { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550", tag: "Classic" },
-        { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600", tag: "Signature" },
-        { name: "Escargots de Bourgogne", desc: "Snails with garlic-herb butter", price: "₹2,900", tag: "Chef's Pick" },
-        { name: "Soupe à l'Oignon", desc: "French onion soup", price: "₹2,500", tag: "Vegetarian" },
-        { name: "Galette Bretonne", desc: "Savory buckwheat crêpe", price: "₹2,650", tag: "Fresh" },
-        { name: "Salade Niçoise", desc: "Niçoise salad with vegetables, tuna and egg", price: "₹2,750", tag: "Fresh" },
+        { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550", tag: "Classic", img: "" },
+        { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600", tag: "Signature", img: "" },
+        { name: "Escargots de Bourgogne", desc: "Snails with garlic-herb butter", price: "₹2,900", tag: "Chef's Pick", img: "" },
+        { name: "Soupe à l'Oignon", desc: "French onion soup", price: "₹2,500", tag: "Vegetarian", img: "" },
+        { name: "Galette Bretonne", desc: "Savory buckwheat crêpe", price: "₹2,650", tag: "Fresh", img: "" },
+        { name: "Salade Niçoise", desc: "Niçoise salad with vegetables, tuna and egg", price: "₹2,750", tag: "Fresh", img: "" },
       ],
     },
     {
       name: "Main Courses",
       script: "Secondi Piatti",
       items: [
-        { name: "Coq au Vin", desc: "Chicken braised in wine", price: "₹2,850", tag: "Chef's Special" },
-        { name: "Bœuf Bourguignon", desc: "Beef stew cooked with red wine", price: "₹2,950", tag: "Slow-Cooked" },
-        { name: "Ratatouille", desc: "Stewed Mediterranean vegetables", price: "₹2,500", tag: "Vegetarian" },
-        { name: "Bouillabaisse", desc: "Traditional Provençal fish stew", price: "₹3,000", tag: "Fresh Fish" },
-        { name: "Cassoulet", desc: "White beans with meat and sausage", price: "₹2,750", tag: "Hearty" },
-        { name: "Confit de Canard", desc: "Slow-cooked duck leg", price: "₹2,900", tag: "Signature" },
-        { name: "Duck à l'Orange", desc: "Duck with orange sauce", price: "₹2,900", tag: "Signature" },
-        { name: "Gratin Dauphinois", desc: "Creamy baked potatoes", price: "₹2,500", tag: "Vegetarian" },
-        { name: "Steak Frites", desc: "Steak served with French fries", price: "₹2,850", tag: "Classic" },
+        { name: "Coq au Vin", desc: "Chicken braised in wine", price: "₹2,850", tag: "Chef's Special", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158253/coq_au_vin.jpg" },
+        { name: "Bœuf Bourguignon", desc: "Beef stew cooked with red wine", price: "₹2,950", tag: "Slow-Cooked", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158399/boeuf_bourguignon.jpg" },
+        { name: "Ratatouille", desc: "Stewed Mediterranean vegetables", price: "₹2,500", tag: "Vegetarian", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158410/ratatouille.jpg" },
+        { name: "Bouillabaisse", desc: "Traditional Provençal fish stew", price: "₹3,000", tag: "Fresh Fish", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158418/bouillabaisse.jpg" },
+        { name: "Cassoulet", desc: "White beans with meat and sausage", price: "₹2,750", tag: "Hearty", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158425/cassoulet.jpg" },
+        { name: "Confit de Canard", desc: "Slow-cooked duck leg", price: "₹2,900", tag: "Signature", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158430/Duck-Confit-retouch.jpg" },
+        { name: "Duck à l'Orange", desc: "Duck with orange sauce", price: "₹2,900", tag: "Signature", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158452/duck.jpg" },
+        { name: "Gratin Dauphinois", desc: "Creamy baked potatoes", price: "₹2,500", tag: "Vegetarian", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158481/8_diwsh.webp" },
+        { name: "Steak Frites", desc: "Steak served with French fries", price: "₹2,850", tag: "Classic", img: "https://res.cloudinary.com/edkue6fu/image/upload/v1790158489/10tyh_dish.jpg" },
       ],
     },
     {
       name: "Desserts",
       script: "Dolci",
       items: [
-        { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600", tag: "Classic" },
-        { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700", tag: "Signature" },
-        { name: "Croissant", desc: "Buttery, flaky pastry", price: "₹2,500", tag: "Fresh" },
-        { name: "Crème Brûlée", desc: "Baked custard with caramelized sugar", price: "₹2,800", tag: "Signature Dessert" },
-        { name: "Chocolate Mousse", desc: "Light, rich chocolate dessert", price: "₹2,650", tag: "Vegetarian" },
+        { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600", tag: "Classic", img: "" },
+        { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700", tag: "Signature", img: "" },
+        { name: "Croissant", desc: "Buttery, flaky pastry", price: "₹2,500", tag: "Fresh", img: "" },
+        { name: "Crème Brûlée", desc: "Baked custard with caramelized sugar", price: "₹2,800", tag: "Signature Dessert", img: "" },
+        { name: "Chocolate Mousse", desc: "Light, rich chocolate dessert", price: "₹2,650", tag: "Vegetarian", img: "" },
       ],
     },
   ];
@@ -445,18 +445,28 @@ function MenuModal({
               </h3>
               <div className="space-y-6">
                 {cat.items.map((item, j) => (
-                  <div key={j}>
-                    <div className="flex justify-between items-baseline gap-3">
-                      <h4 className="font-heading text-cocoa">{item.name}</h4>
-                      <div className="flex-1 border-b-2 border-dotted border-gold/60 mx-2"></div>
-                      <span className="text-burgundy font-bold whitespace-nowrap">{item.price}</span>
+                  <div key={j} className="flex gap-4">
+                    {item.img && (
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        loading="lazy"
+                        className="w-24 h-24 rounded-xl object-cover border-2 border-gold/50 shadow-md shrink-0"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-baseline gap-3">
+                        <h4 className="font-heading text-cocoa">{item.name}</h4>
+                        <div className="flex-1 border-b-2 border-dotted border-gold/60 mx-2"></div>
+                        <span className="text-burgundy font-bold whitespace-nowrap">{item.price}</span>
+                      </div>
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="bg-sage text-cream px-2.5 py-0.5 rounded-full text-xs border border-gold/40">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <p className="text-sm text-cocoa/70 mt-1.5 leading-relaxed">{item.desc}</p>
                     </div>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="bg-sage text-cream px-2.5 py-0.5 rounded-full text-xs border border-gold/40">
-                        {item.tag}
-                      </span>
-                    </div>
-                    <p className="text-sm text-cocoa/70 mt-1.5 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
