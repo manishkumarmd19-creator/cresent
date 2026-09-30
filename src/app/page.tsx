@@ -47,6 +47,8 @@ const marqueeWords = [
 const menuBackground =
   "https://images.pexels.com/photos/2504911/pexels-photo-2504911.jpeg?auto=compress&cs=tinysrgb&w=1920";
 
+const API_BASE = "http://localhost:4000";
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -383,6 +385,59 @@ function MenuModal({
     };
   }, [open, onClose]);
 
+  type CartItem = { name: string; price: string; qty: number };
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [checkout, setCheckout] = useState(false);
+  const [customer, setCustomer] = useState("");
+  const [phone, setPhone] = useState("");
+  const [orderState, setOrderState] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  function addToCart(item: { name: string; price: string }) {
+    setCart((prev) => {
+      const found = prev.find((c) => c.name === item.name);
+      if (found) {
+        return prev.map((c) =>
+          c.name === item.name ? { ...c, qty: c.qty + 1 } : c
+        );
+      }
+      return [...prev, { name: item.name, price: item.price, qty: 1 }];
+    });
+  }
+
+  function cartTotal() {
+    return cart.reduce(
+      (s, c) => s + (Number(c.price.replace(/[^\d]/g, "")) || 0) * c.qty,
+      0
+    );
+  }
+
+  async function placeOrder() {
+    if (!customer || !phone || cart.length === 0) return;
+    setOrderState("sending");
+    try {
+      const res = await fetch(`${API_BASE}/api/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customer,
+          phone,
+          items: cart.map((c) => ({ name: c.name, qty: c.qty, price: c.price })),
+        }),
+      });
+      if (res.ok) {
+        setCart([]);
+        setCustomer("");
+        setPhone("");
+        setCheckout(false);
+        setOrderState("done");
+      } else {
+        setOrderState("error");
+      }
+    } catch {
+      setOrderState("error");
+    }
+  }
+
   if (!open) return null;
 
   return (
@@ -464,6 +519,12 @@ function MenuModal({
                         <span className="bg-sage text-cream px-2.5 py-0.5 rounded-full text-xs border border-gold/40">
                           {item.tag}
                         </span>
+                        <button
+                          onClick={() => addToCart(item)}
+                          className="ml-auto bg-burgundy text-cream px-3 py-1 rounded-full text-xs font-semibold border border-gold/50 hover:bg-terracotta transition-colors"
+                        >
+                          Add to Order +
+                        </button>
                       </div>
                       <p className="text-sm text-cocoa/70 mt-1.5 leading-relaxed">{item.desc}</p>
                     </div>
@@ -477,6 +538,91 @@ function MenuModal({
           <a href="#reserve" onClick={onClose} className="inline-block bg-burgundy text-cream border-2 border-gold px-10 py-3.5 rounded-full font-semibold hover:bg-terracotta transition-colors">
             Reserve a Table
           </a>
+        </div>
+      </div>
+
+      <div className="fixed bottom-0 inset-x-0 z-[65] pointer-events-none pb-6 px-4">
+        <div className="max-w-4xl mx-auto pointer-events-auto">
+          {cart.length > 0 && (
+            <div className="bg-wine-dark/95 backdrop-blur border-2 border-gold rounded-2xl shadow-2xl p-4">
+              {!checkout ? (
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-cream font-semibold text-sm">
+                      {cart.reduce((s, c) => s + c.qty, 0)} item(s) selected
+                    </p>
+                    <p className="text-gold font-heading text-2xl">
+                      ₹{cartTotal().toLocaleString("en-IN")}
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setCheckout(true)}
+                      className="bg-gold text-wine-dark px-6 py-2.5 rounded-full font-bold hover:bg-cream transition-colors text-sm"
+                    >
+                      Place Order
+                    </button>
+                    <button
+                      onClick={() => setCart([])}
+                      className="px-4 py-2.5 rounded-full text-sm font-semibold text-terracotta border border-terracotta/50 hover:bg-burgundy hover:text-cream transition-colors"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <input
+                      type="text"
+                      placeholder="Your name"
+                      value={customer}
+                      onChange={(e) => setCustomer(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-full bg-cream text-cocoa placeholder-cocoa/40 border-2 border-gold focus:border-burgundy focus:outline-none text-sm"
+                    />
+                    <input
+                      type="tel"
+                      placeholder="Phone number"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-full bg-cream text-cocoa placeholder-cocoa/40 border-2 border-gold focus:border-burgundy focus:outline-none text-sm"
+                    />
+                  </div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <p className="text-cream/70 text-sm">
+                      Total: <span className="text-gold font-bold">₹{cartTotal().toLocaleString("en-IN")}</span>
+                      &nbsp;&middot;&nbsp;{cart.map((c) => `${c.name} ×${c.qty}`).join(", ")}
+                    </p>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={placeOrder}
+                        disabled={orderState === "sending"}
+                        className="bg-gold text-wine-dark px-6 py-2.5 rounded-full font-bold hover:bg-cream transition-colors text-sm disabled:opacity-50"
+                      >
+                        {orderState === "sending" ? "Sending..." : "Confirm Order"}
+                      </button>
+                      <button
+                        onClick={() => setCheckout(false)}
+                        className="px-4 py-2.5 rounded-full text-sm font-semibold text-terracotta border border-terracotta/50 hover:bg-burgundy hover:text-cream transition-colors"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                  {orderState === "done" && (
+                    <p className="text-sage font-semibold text-sm text-center">
+                      Order placed! We'll have it ready for you soon.
+                    </p>
+                  )}
+                  {orderState === "error" && (
+                    <p className="text-terracotta font-semibold text-sm text-center">
+                      Please enter your name and phone number.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -577,6 +723,43 @@ function Testimonials() {
 }
 
 function Reservation() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    guests: "2 Guests",
+    date: "",
+  });
+  const [rState, setRState] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  async function submitReservation(e: React.FormEvent) {
+    e.preventDefault();
+    if (!form.name || !form.phone || !form.date) {
+      setRState("error");
+      return;
+    }
+    setRState("sending");
+    try {
+      const res = await fetch(`${API_BASE}/api/reservations`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          guests: form.guests,
+          date: form.date,
+        }),
+      });
+      if (res.ok) {
+        setForm({ name: "", phone: "", guests: "2 Guests", date: "" });
+        setRState("done");
+      } else {
+        setRState("error");
+      }
+    } catch {
+      setRState("error");
+    }
+  }
+
   return (
     <section id="reserve" className="py-24 px-4 sm:px-6 lg:px-8 bg-wine">
       <div className="max-w-6xl mx-auto">
@@ -625,27 +808,35 @@ function Reservation() {
               <p className="font-script text-terracotta text-2xl">La Tua Tavola</p>
               <h3 className="text-3xl font-heading text-burgundy">Make a Reservation</h3>
             </div>
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-5" onSubmit={submitReservation}>
               <div>
                 <label className="block text-cocoa/70 text-sm font-semibold mb-2">Full Name</label>
                 <input
                   type="text"
                   placeholder="Your name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full px-5 py-3 rounded-full bg-cream border-2 border-gold text-cocoa placeholder-cocoa/40 focus:border-burgundy focus:outline-none transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-cocoa/70 text-sm font-semibold mb-2">Email</label>
+                <label className="block text-cocoa/70 text-sm font-semibold mb-2">Phone</label>
                 <input
-                  type="email"
-                  placeholder="you@example.com"
+                  type="tel"
+                  placeholder="+1 555 000 0000"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full px-5 py-3 rounded-full bg-cream border-2 border-gold text-cocoa placeholder-cocoa/40 focus:border-burgundy focus:outline-none transition-colors"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-cocoa/70 text-sm font-semibold mb-2">Guests</label>
-                  <select className="w-full px-5 py-3 rounded-full bg-cream border-2 border-gold text-cocoa focus:border-burgundy focus:outline-none transition-colors">
+                  <select
+                    value={form.guests}
+                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                    className="w-full px-5 py-3 rounded-full bg-cream border-2 border-gold text-cocoa focus:border-burgundy focus:outline-none transition-colors"
+                  >
                     <option>1 Guest</option>
                     <option>2 Guests</option>
                     <option>3 Guests</option>
@@ -657,12 +848,28 @@ function Reservation() {
                   <label className="block text-cocoa/70 text-sm font-semibold mb-2">Date</label>
                   <input
                     type="date"
+                    value={form.date}
+                    onChange={(e) => setForm({ ...form, date: e.target.value })}
                     className="w-full px-5 py-3 rounded-full bg-cream border-2 border-gold text-cocoa focus:border-burgundy focus:outline-none transition-colors"
                   />
                 </div>
               </div>
-              <button type="submit" className="w-full bg-burgundy text-cream py-4 rounded-full font-semibold hover:bg-terracotta transition-colors border-2 border-gold/50">
-                Confirm Reservation
+              {rState === "done" && (
+                <p className="text-center text-sage font-semibold text-sm">
+                  Thank you! Your reservation request has been received.
+                </p>
+              )}
+              {rState === "error" && (
+                <p className="text-center text-burgundy font-semibold text-sm">
+                  Please fill in your name, phone and date.
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={rState === "sending"}
+                className="w-full bg-burgundy text-cream py-4 rounded-full font-semibold hover:bg-terracotta transition-colors border-2 border-gold/50 disabled:opacity-50"
+              >
+                {rState === "sending" ? "Sending..." : "Confirm Reservation"}
               </button>
             </form>
           </div>
