@@ -362,11 +362,11 @@ function MenuModal({
       name: "Desserts",
       script: "Dolci",
       items: [
-        { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600", tag: "Classic", img: "" },
-        { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700", tag: "Signature", img: "" },
-        { name: "Croissant", desc: "Buttery, flaky pastry", price: "₹2,500", tag: "Fresh", img: "" },
-        { name: "Crème Brûlée", desc: "Baked custard with caramelized sugar", price: "₹2,800", tag: "Signature Dessert", img: "" },
-        { name: "Chocolate Mousse", desc: "Light, rich chocolate dessert", price: "₹2,650", tag: "Vegetarian", img: "" },
+        { name: "Crêpes", desc: "Thin French pancakes", price: "₹2,600", tag: "Classic", img: "https://res.cloudinary.com/e6n6at9h/image/upload/v1790158310/crepes.jpg" },
+        { name: "Tarte Tatin", desc: "Upside-down caramelized apple tart", price: "₹2,700", tag: "Signature", img: "https://res.cloudinary.com/e6n6at9h/image/upload/v1790158308/tarte_tartin.jpg" },
+        { name: "Croissant", desc: "Buttery, flaky pastry", price: "₹2,500", tag: "Fresh", img: "https://res.cloudinary.com/e6n6at9h/image/upload/v1790158314/corissant.jpg" },
+        { name: "Crème Brûlée", desc: "Baked custard with caramelized sugar", price: "₹2,800", tag: "Signature Dessert", img: "https://res.cloudinary.com/e6n6at9h/image/upload/v1790158307/creme_brulee.jpg" },
+        { name: "Chocolate Mousse", desc: "Light, rich chocolate dessert", price: "₹2,650", tag: "Vegetarian", img: "https://res.cloudinary.com/e6n6at9h/image/upload/v1790158306/chocolate.jpg" },
       ],
     },
   ];
