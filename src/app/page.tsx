@@ -335,12 +335,12 @@ function MenuModal({
       name: "Starters & Soups",
       script: "Antipasti e Zuppe",
       items: [
-        { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550", tag: "Classic", img: "" },
-        { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600", tag: "Signature", img: "" },
-        { name: "Escargots de Bourgogne", desc: "Snails with garlic-herb butter", price: "₹2,900", tag: "Chef's Pick", img: "" },
-        { name: "Soupe à l'Oignon", desc: "French onion soup", price: "₹2,500", tag: "Vegetarian", img: "" },
-        { name: "Galette Bretonne", desc: "Savory buckwheat crêpe", price: "₹2,650", tag: "Fresh", img: "" },
-        { name: "Salade Niçoise", desc: "Niçoise salad with vegetables, tuna and egg", price: "₹2,750", tag: "Fresh", img: "" },
+        { name: "Quiche Lorraine", desc: "Savory egg, cream and bacon tart", price: "₹2,550", tag: "Classic", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758485/WhatsApp_Image_2026-09-23_at_3.58.12_PM.jpg" },
+        { name: "Croque Monsieur", desc: "Grilled ham and cheese sandwich", price: "₹2,600", tag: "Signature", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758564/WhatsApp_Image_2026-09-23_at_3.58.12_PM_2.jpg" },
+        { name: "Escargots de Bourgogne", desc: "Snails with garlic-herb butter", price: "₹2,900", tag: "Chef's Pick", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758625/WhatsApp_Image_2026-09-23_at_3.58.13_PM.jpg" },
+        { name: "Soupe à l'Oignon", desc: "French onion soup", price: "₹2,500", tag: "Vegetarian", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758674/WhatsApp_Image_2026-09-23_at_3.58.13_PM_1.jpg" },
+        { name: "Galette Bretonne", desc: "Savory buckwheat crêpe", price: "₹2,650", tag: "Fresh", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758725/WhatsApp_Image_2026-09-23_at_3.58.13_PM_2.jpg" },
+        { name: "Salade Niçoise", desc: "Niçoise salad with vegetables, tuna and egg", price: "₹2,750", tag: "Fresh", img: "https://res.cloudinary.com/vy2eiium/image/upload/v1790758759/WhatsApp_Image_2026-09-23_at_3.58.14_PM.jpg" },
       ],
     },
     {
